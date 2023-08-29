@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="registration-form">
+    <h2>Register</h2>
+    <form (ngSubmit)="register()">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" class="form-control" [(ngModel)]="user.username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" class="form-control" [(ngModel)]="user.password">
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+      <p *ngIf="registrationSuccessful" class="success-message">Registration successful!</p>
+    </form>
+    <p class="login-link">Already have an account? <a routerLink="/login">Login</a></p>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<header>
+  <div class="navbar">
+    <div class="navbar-logo">My Cool Shop</div>
+    <ul class="navbar-links">
+      <li><a class="navbar-link" routerLink="/">Home</a></li>
+      <li><a class="navbar-link" routerLink="/cart">Cart</a></li>
+      <!-- Display Login and Logout buttons based on authentication status -->
+    
+      
+      <li *ngIf="authService.isAuthenticated()">
+        <button (click)="logout()">Logout</button>
+      </li>
+    </ul>
+    <button class="navbar-action" routerLink="/registration">Sign Up</button>
+  </div>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer>
+  <p>&copy; 2023 Your Online Shopping App. All rights reserved.</p>
+</footer>

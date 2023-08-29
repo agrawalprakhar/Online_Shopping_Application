@@ -1,0 +1,17 @@
+<div>
+  <h2>Order Confirmation</h2>
+  <div *ngIf="order">
+    <p>Order ID: {{ order.id }}</p>
+    <p>Shipping Details:</p>
+    <p>Name: {{ order.shippingDetails.name }}</p>
+    <p>Address: {{ order.shippingDetails.address }}</p>
+    <p>City: {{ order.shippingDetails.city }}</p>
+    <p>Postal Code: {{ order.shippingDetails.postalCode }}</p>
+    <p>Total: {{ order.total | currency }}</p>
+    <p>Items:</p>
+    <div *ngFor="let item of order.items">
+      <p>{{ item.name }} - Price: {{ item.price | currency }}</p>
+    </div>
+  </div>
+  <p *ngIf="!order">Order not found.</p>
+</div>
