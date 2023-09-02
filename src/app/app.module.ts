@@ -31,7 +31,8 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
     RegistrationComponent,
     LoginComponent,
     ShoppingCartComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+  
   ],
   imports: [
     BrowserModule,

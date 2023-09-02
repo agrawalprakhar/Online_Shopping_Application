@@ -1,9 +1,28 @@
 <div class="search-bar">
-  <input type="text" [(ngModel)]="searchQuery" placeholder="Search products...">
+  <input type="text" [(ngModel)]="searchQuery"  placeholder="Search products...">
   <button (click)="searchProducts()">Search</button>
 </div>
+<form [formGroup]="filterSortForm" class="filter-sort-form">
+  <div class="filter-section">
+    <label for="category">Filter by Category:</label>
+    <select id="category" formControlName="category">
+      <option value="">All Categories</option>
+      <!-- Add options for available categories -->
+    </select>
+  </div>
+  <div class="sort-section">
+    <label for="sortBy">Sort by:</label>
+    <select id="sortBy" formControlName="sortBy">
+      <option value="price">Price</option>
+      <option value="name">Name</option>
+      <!-- Add more sorting options as needed -->
+    </select>
+  </div>
+  <button type="button" (click)="applyFilters()">Apply Filters</button>
+</form>
 <div class="product-list">
-  <div *ngFor="let product of products" class="product-card">
+  <a *ngFor="let product of products" [routerLink]="['/product', product.id]" class="product-card">
+   
     <img src="{{ product.image }}" alt="{{ product.name }}" class="product-image">
     <h3 class="product-title">{{ product.name }}</h3>
     <p class="product-price">{{ product.price | currency }}</p>
@@ -13,7 +32,12 @@
       <i class="fa fa-star filled"></i>
       <i class="fa fa-star filled"></i>
       <i class="fa fa-star"></i>
+      
     </div>
+    
     <button class="add-to-cart-button" (click)="addToCart(product)">Add to Cart</button>
-  </div>
+    
+  </a>
 </div>
+
+

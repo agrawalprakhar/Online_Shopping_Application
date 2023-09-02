@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
+  [x: string]: any;
   private cartItems: Product[] = [];
   private orders: Order[] = [];
   
@@ -31,6 +32,10 @@ export class CartService {
       this.cartItems.splice(index, 1);
       this.cartSubject.next(this.cartItems);
     }
+  }
+  isCartEmpty(): boolean {
+    // Implement the logic to check if the cart is empty.
+    return this.cartItems.length === 0;
   }
 
   getCartItems(): Product[] {

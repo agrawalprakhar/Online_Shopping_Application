@@ -21,14 +21,28 @@ export class ProductService {
           name: item.title,
           price: item.id * 10, // Just an example price calculation
           image: `https://picsum.photos/200?random=${item.id}`, // Using Lorem Picsum for images
-          description: item.body
+          description: item.body,
+          category:'Some',
         }));
       })
     );
   }
 
-  getProductById(id: string): Observable<any> {
-    const url = `${this.apiUrl}/${id}`;
-    return this.http.get<any>(url);
+  getProductById(id: string): Observable<Product> {
+    const url = `${this.apiUrl}/posts/${id}`; // Replace 'products' with your actual endpoint
+    return this.http.get<any>(url).pipe(
+      map(data => {
+        // Map the JSON data to your Product model
+        return {
+          id: data.id,
+          name: data.title,
+          price: data.id * 10, // Just an example price calculation
+          image: `https://picsum.photos/200?random=${data.id}`, // Using Lorem Picsum for images
+          description: data.body,
+          category: 'Some',
+        };
+      })
+    );
   }
+  
 }

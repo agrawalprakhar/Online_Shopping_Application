@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
 import { CartService } from '../cart.service';
@@ -9,22 +9,25 @@ import { CartService } from '../cart.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
+  @Input() products: any; // Declare an input property to receive product data from the parent
   product: any;
-
+  productId!: number;
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
     private cartService: CartService
   ) {}
 
-  ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const productId = params.get('id');
-      if (productId) {
-        this.getProductDetails(productId);
-      }
-    });
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id !== null) {
+      this.productId = +id;
+      this.product = this.productService.getProductById(this.productId.toString()); // Convert productId to striFetch product details
+    } else {
+      // Handle the case when 'id' is null, e.g., by displaying an error message or redirecting
+    }
   }
+  
 
   getProductDetails(productId: string): void {
     this.productService.getProductById(productId).subscribe(product => {

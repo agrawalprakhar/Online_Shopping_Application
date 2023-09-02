@@ -115,18 +115,25 @@
 }
 
 .search-bar input {
+  border-radius: 75px;
   flex: 1;
   padding: 10px;
+  
   border: 1px solid #ccc;
-  border-radius: 5px 0 0 5px;
+  margin-right:10px ;
+  
 }
+.S{
+  padding-right: 25px;
+}
+
 
 .search-bar button {
   background-color: #3498db;
   color: #fff;
   border: none;
   padding: 10px 15px;
-  border-radius: 0 5px 5px 0;
+  border-radius: 75px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
@@ -200,4 +207,72 @@
   .add-to-cart-button:hover {
     background-color: #0056b3;
   }
-  
+  /* Style for the filter and sort form */
+.filter-sort-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the filter section */
+.filter-section {
+  display: flex;
+  align-items: center;
+}
+
+/* Style for the label in the filter section */
+.filter-section label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* Style for the select dropdown in the filter section */
+.filter-section select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+/* Style for the sort section */
+.sort-section {
+  display: flex;
+  align-items: center;
+}
+
+/* Style for the label in the sort section */
+.sort-section label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* Style for the select dropdown in the sort section */
+.sort-section select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+/* Style for the Apply Filters button */
+.filter-sort-form button {
+  background-color: #e91e63;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+/* Style for the Apply Filters button on hover */
+.filter-sort-form button:hover {
+  background-color: #d81b60;
+}
