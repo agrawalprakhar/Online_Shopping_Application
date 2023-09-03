@@ -1,34 +1,61 @@
+/* Style for the product details container */
 .product-details {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin-top: 20px;
-  }
-  
-  .product-details img {
-    max-width: 200px;
-    height: auto;
-  }
-  
-  .product-details h3 {
-    margin: 0;
-  }
-  
-  .product-details p {
-    margin: 10px 0;
-  }
-  
-  .product-details button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
-  .product-details button:hover {
-    background-color: #0056b3;
-  }
-  
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  text-align: left;
+}
+
+/* Style for the product title */
+.product-details h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Style for product category and price */
+.product-details p {
+  font-size: 16px;
+  color: #666;
+  margin: 5px 0;
+}
+
+/* Style for the product description */
+.product-details p.description {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Style for the product thumbnail */
+.product-thumbnail img {
+  max-width: 250px;
+  max-height: 200px;
+  margin-right: 20px;
+  border: 1px solid #ddd;
+}
+
+/* Style for the product images */
+.product-images img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+}
+
+/* Style for the "Add to Cart" button */
+.product-details button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* Hover effect for the button */
+.product-details button:hover {
+  background-color: #0056b3;
+}

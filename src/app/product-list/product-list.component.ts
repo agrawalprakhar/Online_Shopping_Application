@@ -4,6 +4,7 @@ import { CartService } from '../cart.service'; // Import CartService
 import { Product } from '../models/product.model';
 import { AuthService } from '../auth.service';
 import { FormBuilder,FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class ProductListComponent implements OnInit {
   searchQuery: string = '';
   isLoggedIn: boolean = false;
   filterSortForm !: FormGroup;
-  constructor(private productService: ProductService,private cartService : CartService,private authService: AuthService,private formBuilder: FormBuilder) {
+  constructor(private productService: ProductService,private cartService : CartService,private authService: AuthService,private formBuilder: FormBuilder,private router:Router) {
     this.filterSortForm = this.formBuilder.group({
       category: [''], // Initial value for the category control
       sortBy: ['price'], // Initial value for the sortBy control
@@ -36,12 +37,14 @@ export class ProductListComponent implements OnInit {
   }
 
   getProducts(): void {
-    this.productService.getProducts().subscribe(products => {
-      this.products = products;
+    this.productService.getProducts().subscribe((data: any) => {
+      this.products = data.products
+
      
 
     });
   }
+  
   addToCart(product: Product): void {
     this.cartService.addToCart(product);
     alert('Product added to cart'); // Display an alert for testing
@@ -50,7 +53,7 @@ export class ProductListComponent implements OnInit {
   searchProducts(): void {
     if (this.searchQuery) {
       this.products = this.products.filter(product =>
-        product.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+        product.title.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     } else {
       this.getProducts(); // Reset the list if search query is empty
@@ -73,13 +76,17 @@ const sortBy = sortByControl ? sortByControl.value : '';
     if (sortBy === 'price') {
       this.products.sort((a, b) => a.price - b.price);
     } else if (sortBy === 'name') {
-      this.products.sort((a, b) => a.name.localeCompare(b.name));
+      this.products.sort((a, b) => a.title.localeCompare(b.title));
     }
   }
   onSelectProduct(product: any) {
     this.selectedProduct = product;
   }
-
+  navigateToProductDetails(productId: number): void {
+    // Use the Router service to navigate to the product details route
+    this.router.navigate(['/products', productId]);
+  }
+  
 
   
 }

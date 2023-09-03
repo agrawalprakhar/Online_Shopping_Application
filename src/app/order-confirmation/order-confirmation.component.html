@@ -10,7 +10,7 @@
     <p>Total: {{ order.total | currency }}</p>
     <p>Items:</p>
     <div *ngFor="let item of order.items">
-      <p>{{ item.name }} - Price: {{ item.price | currency }}</p>
+      <p>{{ item.title}} - Price: {{ item.price | currency }}</p>
     </div>
   </div>
   <p *ngIf="!order">Order not found.</p>

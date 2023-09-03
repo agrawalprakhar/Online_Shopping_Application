@@ -16,28 +16,24 @@
       <option value="price">Price</option>
       <option value="name">Name</option>
       <!-- Add more sorting options as needed -->
-    </select>
+     </select>
   </div>
   <button type="button" (click)="applyFilters()">Apply Filters</button>
 </form>
 <div class="product-list">
-  <a *ngFor="let product of products" [routerLink]="['/product', product.id]" class="product-card">
-   
-    <img src="{{ product.image }}" alt="{{ product.name }}" class="product-image">
-    <h3 class="product-title">{{ product.name }}</h3>
+  <div *ngFor="let product of products" class="product-card">
+    <div class="card" (click)="navigateToProductDetails(product.id)">
+    <img src="{{ product.thumbnail }}" alt="{{ product.title }}" class="product-image">
+    <h3 class="product-title">{{ product.title }}</h3>
     <p class="product-price">{{ product.price | currency }}</p>
     <div class="ratings">
-      <i class="fa fa-star filled"></i>
-      <i class="fa fa-star filled"></i>
-      <i class="fa fa-star filled"></i>
-      <i class="fa fa-star filled"></i>
-      <i class="fa fa-star"></i>
+      
       
     </div>
-    
+    <!-- <a [routerLink]="['/products', product.id]">View Details</a> -->
     <button class="add-to-cart-button" (click)="addToCart(product)">Add to Cart</button>
-    
-  </a>
-</div>
+    </div>
+  </div>
+</div> 
 
 

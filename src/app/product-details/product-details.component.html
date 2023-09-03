@@ -1,10 +1,17 @@
-<div *ngIf="product" class="product-details">
-  <div class="product-image">
-    <img [src]="product.largeImage" alt="{{ product.name }}">
+<div class="product-details">
+  <div class="product-thumbnail">
+    <img [src]="productdata.thumbnail" alt="{{ productdata.title }} Thumbnail">
   </div>
-  <div class="product-info">
-    <h2>{{ product.name }}</h2>
-    <p class="product-description">{{ product.description }}</p>
-    <button class="buy-button">Buy Now</button>
+  <h2>{{ productdata.title }}</h2>
+  <p>Category: {{ productdata.category }}</p>
+  <p>Price: ${{ productdata.price }}</p>
+  <p>Description: {{ productdata.description }}</p>
+
+
+  <div *ngFor="let image of productdata.images.split(',')">
+    <img [src]="image.trim()" alt="{{ productdata.title }} Image">
   </div>
+
+  <button (click)="addToCart(productdata)">Add to Cart</button>
 </div>
+
