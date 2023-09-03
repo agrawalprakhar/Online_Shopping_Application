@@ -8,6 +8,7 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
   title = 'online-shopping-app';
+  
   constructor(public authService: AuthService) { }
 
   logout(): void {

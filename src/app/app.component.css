@@ -56,6 +56,7 @@ body, h1, h2, h3, p, ul, li {
 }
 
 .navbar-link {
+
   text-decoration: none;
   color: #ffffff;
   font-weight: 500;
@@ -115,4 +116,38 @@ body, h1, h2, h3, p, ul, li {
     padding: 10px 0;
   }
   
-  
+  /* app.component.css */
+/* Custom Logout Button Styles */
+.logout-button {
+  background-color: orange; /* Blue background color */
+  color: white; /* White text color */
+  /* Padding around the text */
+  border: none; /* Remove the default button border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Show a hand cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.logout-button:hover {
+  background-color: #fd7505; /* Darker blue color on hover */
+}
+
+/* Center the button horizontally on the page */
+.center-button {
+  display: flex;
+  justify-content: center;
+}
+
+/* Adjust margin or spacing as needed */
+.logout-button {
+  margin-right: 10px;
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+  .center-button {
+    flex-direction: column;
+    align-items: center;
+  }
+  /* Adjust other styles for smaller screens */
+}

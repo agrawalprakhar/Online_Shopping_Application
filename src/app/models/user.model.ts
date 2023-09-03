@@ -1,6 +1,8 @@
+// user.ts
 export interface User {
-    id: number;
-    username: string;
-    password: string;
-  }
-  
+  id?: number;
+  username: string;
+  email: string;
+  password: string;
+  // Other user properties as needed
+}

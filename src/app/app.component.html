@@ -6,12 +6,17 @@
       <li><a class="navbar-link" routerLink="/cart">Cart</a></li>
       <!-- Display Login and Logout buttons based on authentication status -->
     
-      
-      <li *ngIf="authService.isAuthenticated()">
-        <button (click)="logout()">Logout</button>
-      </li>
+      <div class="center-button">
+
+        <li *ngIf="authService.isAuthenticated()">
+          <button   class="logout-button"  (click)="logout()">Logout</button>
+        </li>
+      </div>
     </ul>
-    <button class="navbar-action" routerLink="/registration">Sign Up</button>
+    <div *ngIf="!authService.isAuthenticated()">
+
+      <button class="navbar-action" routerLink="/registration">Sign Up</button>
+    </div>
   </div>
 </header>
 

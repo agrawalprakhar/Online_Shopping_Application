@@ -5,14 +5,19 @@
 <form [formGroup]="filterSortForm" class="filter-sort-form">
   <div class="filter-section">
     <label for="category">Filter by Category:</label>
-    <select id="category" formControlName="category">
+    <select id="category" formControlName="category" (change)="applyFilters()">
       <option value="">All Categories</option>
-      <!-- Add options for available categories -->
+      <option value="smartphones">Smartphones</option>
+      <option value="laptops">Laptops</option>
+      <option value="fragrances">Fragrances</option>
+      <option value="skincare">Skincare</option>
+      <option value="groceries">Groceries</option>
+      <option value="home-decoration">Home Decoration</option>
     </select>
   </div>
   <div class="sort-section">
     <label for="sortBy">Sort by:</label>
-    <select id="sortBy" formControlName="sortBy">
+    <select id="sortBy" formControlName="sortBy" (change)="applyFilters()">
       <option value="price">Price</option>
       <option value="name">Name</option>
       <!-- Add more sorting options as needed -->

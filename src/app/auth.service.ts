@@ -35,6 +35,7 @@ export class AuthService {
     const user = this.users.find(u => u.username === username && u.password === password);
     if (user) {
       this.authenticatedUser = user;
+      localStorage.setItem('authToken', 'your-authentication-token'); // Replace with a real token
       return true;
     }
     return false;
@@ -43,6 +44,7 @@ export class AuthService {
   getAuthenticatedUser(): User | null {
     return this.authenticatedUser;
   }
+  
 
   logout(): void {
     // Clear the authentication token from localStorage or any other storage
